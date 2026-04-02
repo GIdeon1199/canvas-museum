@@ -71,7 +71,15 @@ const App = () => {
       )}
       
       {!activeCanvas && ((!isMobile && !isLocked) || (isMobile && !hasStartedMobile)) && (
-        <div id="instructions" className={hasPlayedIntro ? 'ready' : 'animating'} onClick={() => { if (isMobile) setHasStartedMobile(true) }}>
+        <div 
+          id="instructions" 
+          className={hasPlayedIntro ? 'ready' : 'animating'} 
+          onClick={() => { if (isMobile) setHasStartedMobile(true) }}
+          onTouchStart={() => {
+            useCanvasStore.getState().forceMobileMode();
+            setHasStartedMobile(true);
+          }}
+        >
           {hasPlayedIntro ? (
             <div className="tutorial-content">
               <h1>The Kunstraum Gallery</h1>
@@ -124,7 +132,7 @@ const App = () => {
 
       {!activeCanvas && (hasPlayedIntro || hasStartedMobile) && (
         <button id="jump-canvas-btn" onClick={handleJumpToCanvas}>
-          [ J ] START PAINTING
+          {isMobile ? "START PAINTING" : "[ J ] START PAINTING"}
         </button>  
       )}
 

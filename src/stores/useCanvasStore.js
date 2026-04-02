@@ -21,6 +21,7 @@ export const useCanvasStore = create(
   persist(
     (set, getStore) => ({
       isMobile: isMobileDevice,
+      forceMobileMode: () => set({ isMobile: true }),
       hasStartedMobile: false,
       setHasStartedMobile: (started) => set({ hasStartedMobile: started }),
       isMobileWalking: false,
