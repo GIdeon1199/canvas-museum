@@ -408,11 +408,17 @@ input[type=range] { width: 100%; }
     width: 96%;
     height: 92vh;
     padding: 18px;
+    overflow-y: auto;
   }
 
   .drawing-header,
   .drawing-workspace {
     flex-direction: column;
+  }
+
+  .canvas-wrapper {
+    min-height: 50vh;
+    flex: none;
   }
 
   .drawing-tools {
@@ -433,6 +439,19 @@ input[type=range] { width: 100%; }
 
   .plaque-modal-actions {
     flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 768px) {
+  .tutorial-sections {
+    flex-direction: column;
+  }
+  
+  #jump-canvas-btn {
+    bottom: auto;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -497,11 +516,7 @@ input[type=range] { width: 100%; }
   color: #fff;
 }
 
-@media (max-width: 768px) {
-  .tutorial-sections {
-    flex-direction: column;
-  }
-}
+
 
 #mobile-walk-btn {
   position: fixed;

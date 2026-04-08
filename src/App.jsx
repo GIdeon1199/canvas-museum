@@ -41,6 +41,7 @@ const App = () => {
     };
 
     const handleGlobalTouch = () => {
+      if (window.innerWidth > 1024) return;
       const state = useCanvasStore.getState();
       if (!state.isMobile) state.forceMobileMode();
       if (!state.hasStartedMobile && state.hasPlayedIntro) {
@@ -90,8 +91,10 @@ const App = () => {
           className={hasPlayedIntro ? 'ready' : 'animating'} 
           onClick={() => { if (isMobile) setHasStartedMobile(true) }}
           onTouchStart={() => {
-            useCanvasStore.getState().forceMobileMode();
-            setHasStartedMobile(true);
+            if (window.innerWidth <= 1024) {
+              useCanvasStore.getState().forceMobileMode();
+              setHasStartedMobile(true);
+            }
           }}
         >
           {hasPlayedIntro ? (
