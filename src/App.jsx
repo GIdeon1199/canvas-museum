@@ -155,6 +155,13 @@ const App = () => {
 
       {/* React UI Editor Overlay */}
       <DrawingUI />
+
+      {/* Portrait Mode Lock Overlay */}
+      <div id="portrait-lock">
+        <h1 style={{ fontSize: '3.5rem', margin: '0 0 16px 0', animation: 'spin 4s infinite linear' }}>🔄</h1>
+        <h2>PLEASE ROTATE DEVICE</h2>
+        <p>The Kunstraum Gallery requires Landscape mode to paint and explore.</p>
+      </div>
     </>
   );
 };
