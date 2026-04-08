@@ -39,8 +39,22 @@ const App = () => {
         }
       }
     };
+
+    const handleGlobalTouch = () => {
+      const state = useCanvasStore.getState();
+      if (!state.isMobile) state.forceMobileMode();
+      if (!state.hasStartedMobile && state.hasPlayedIntro) {
+        state.setHasStartedMobile(true);
+      }
+    };
+
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('touchstart', handleGlobalTouch, { passive: true });
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('touchstart', handleGlobalTouch);
+    };
   }, []);
 
   return (
