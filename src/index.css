@@ -411,9 +411,12 @@ input[type=range] { width: 100%; }
     overflow-y: auto;
   }
 
-  .drawing-header,
-  .drawing-workspace {
+  .drawing-header {
     flex-direction: column;
+  }
+
+  .drawing-workspace {
+    flex-direction: column-reverse;
   }
 
   .canvas-wrapper {
@@ -448,8 +451,8 @@ input[type=range] { width: 100%; }
   }
   
   #jump-canvas-btn {
-    bottom: auto;
-    top: 24px;
+    top: 24px !important;
+    bottom: auto !important;
     left: 50%;
     transform: translateX(-50%);
   }

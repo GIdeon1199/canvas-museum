@@ -613,10 +613,11 @@ export const DrawingUI = () => {
                 id="paintCanvas"
                 width={CANVAS_WIDTH}
                 height={CANVAS_HEIGHT}
-                onMouseDown={startDrawing}
-                onMouseMove={draw}
-                onMouseUp={stopDrawing}
-                onMouseLeave={stopDrawing}
+                onPointerDown={(e) => { e.currentTarget.setPointerCapture(e.pointerId); startDrawing(e); }}
+                onPointerMove={draw}
+                onPointerUp={(e) => { e.currentTarget.releasePointerCapture(e.pointerId); stopDrawing(e); }}
+                onPointerCancel={stopDrawing}
+                onPointerLeave={stopDrawing}
               />
               {cursorPos && currentTool !== 'fill' && (
                 <div 
