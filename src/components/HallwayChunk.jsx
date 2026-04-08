@@ -43,22 +43,22 @@ export const HallwayChunk = ({ chunkIndex, zBasis }) => {
       {/* Canvases and Lights */}
       {/* Left 1 */}
       <primitive object={targets.tL1} />
-      <spotLight position={[-HALL_WIDTH / 2 + 2, 6, -10]} color={0xfff5e0} intensity={80} angle={Math.PI / 3.5} penumbra={0.7} decay={2} distance={15} target={targets.tL1} castShadow />
+      <spotLight position={[-HALL_WIDTH / 2 + 2, 6, -10]} color={0xfff5e0} intensity={80} angle={Math.PI / 3.5} penumbra={0.7} decay={2} distance={15} target={targets.tL1} />
       <PaintingFrame name={`canvas_${chunkIndex}_l0`} position={[-HALL_WIDTH / 2 + 0.1, 2.2, -10]} rotation={[0, Math.PI / 2, 0]} />
 
       {/* Right 1 */}
       <primitive object={targets.tR1} />
-      <spotLight position={[HALL_WIDTH / 2 - 2, 6, -10]} color={0xfff5e0} intensity={80} angle={Math.PI / 3.5} penumbra={0.7} decay={2} distance={15} target={targets.tR1} castShadow />
+      <spotLight position={[HALL_WIDTH / 2 - 2, 6, -10]} color={0xfff5e0} intensity={80} angle={Math.PI / 3.5} penumbra={0.7} decay={2} distance={15} target={targets.tR1} />
       <PaintingFrame name={`canvas_${chunkIndex}_r0`} position={[HALL_WIDTH / 2 - 0.1, 2.2, -10]} rotation={[0, -Math.PI / 2, 0]} />
 
       {/* Left 2 */}
       <primitive object={targets.tL2} />
-      <spotLight position={[-HALL_WIDTH / 2 + 2, 6, 10]} color={0xfff5e0} intensity={80} angle={Math.PI / 3.5} penumbra={0.7} decay={2} distance={15} target={targets.tL2} castShadow />
+      <spotLight position={[-HALL_WIDTH / 2 + 2, 6, 10]} color={0xfff5e0} intensity={80} angle={Math.PI / 3.5} penumbra={0.7} decay={2} distance={15} target={targets.tL2} />
       <PaintingFrame name={`canvas_${chunkIndex}_l1`} position={[-HALL_WIDTH / 2 + 0.1, 2.2, 10]} rotation={[0, Math.PI / 2, 0]} />
 
       {/* Right 2 */}
       <primitive object={targets.tR2} />
-      <spotLight position={[HALL_WIDTH / 2 - 2, 6, 10]} color={0xfff5e0} intensity={80} angle={Math.PI / 3.5} penumbra={0.7} decay={2} distance={15} target={targets.tR2} castShadow />
+      <spotLight position={[HALL_WIDTH / 2 - 2, 6, 10]} color={0xfff5e0} intensity={80} angle={Math.PI / 3.5} penumbra={0.7} decay={2} distance={15} target={targets.tR2} />
       <PaintingFrame name={`canvas_${chunkIndex}_r1`} position={[HALL_WIDTH / 2 - 0.1, 2.2, 10]} rotation={[0, -Math.PI / 2, 0]} />
 
     </group>
