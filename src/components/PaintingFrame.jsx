@@ -64,12 +64,16 @@ export const PaintingFrame = ({ position, rotation, name }) => {
     return tex;
   }, [artwork?.imageData]);
 
+  const isEditable = name.startsWith('station') || !artwork?.imageData;
+
   const handlePointerDown = (event) => {
+    if (!isEditable) return;
     pointerDownTime.current = Date.now();
   };
 
   const handleClick = (event) => {
     event.stopPropagation();
+    if (!isEditable) return;
     // Only open if the click was short (not holding to walk)
     if (Date.now() - pointerDownTime.current < 300) {
       if (event.distance < 7) {
@@ -95,7 +99,7 @@ export const PaintingFrame = ({ position, rotation, name }) => {
         onPointerDown={handlePointerDown}
         onClick={handleClick}
         onPointerOver={() => {
-          document.body.style.cursor = 'pointer';
+          if (isEditable) document.body.style.cursor = 'pointer';
         }}
         onPointerOut={() => {
           document.body.style.cursor = 'default';
@@ -115,7 +119,7 @@ export const PaintingFrame = ({ position, rotation, name }) => {
         <meshBasicMaterial color={isClose ? 0xffea00 : 0xffffff} transparent opacity={isClose ? 0.8 : 0.4} />
       </mesh>
 
-      {isClose && !activeCanvas && (
+      {isClose && !activeCanvas && isEditable && (
         <Html position={[0, 0, 0.06]} center style={{ pointerEvents: 'none' }}>
           <div style={{ background: 'rgba(0,0,0,0.8)', color: '#fff', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', border: '1px solid rgba(255,255,255,0.3)', whiteSpace: 'nowrap', textTransform: 'uppercase', letterSpacing: '1px', boxShadow: '0 4px 6px rgba(0,0,0,0.3)' }}>
             Click to Paint
